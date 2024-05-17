@@ -1,0 +1,19 @@
+<h2>New book</h1>
+
+<%= form_with model: @book, url: new_book_path do |f| %>
+
+<!--サインイン時に名前も登録するためのフォームを追加-->
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opinion %><br />
+    <%= f.text_field :opinion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Book" %>
+  </div>
+<% end %>

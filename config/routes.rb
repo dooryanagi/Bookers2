@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :books, only:[:new, :show, :index, :create]
+
   # ルートパスを設定
   root to: "homes#top"
 
