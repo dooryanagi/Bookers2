@@ -1,6 +1,8 @@
 <h2>Log in</h2>
+  <!--推奨のform_withに書き換える-->
+  <!--@userは個別で定義していないが、deviseがnewを実行する際に=User.newと同様の処理をしているため使用可能-->
+  <%= form_with model: @user, url: user_session_path do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

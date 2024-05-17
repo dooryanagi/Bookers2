@@ -11,6 +11,40 @@
   </head>
 
   <body>
+    <header>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+
+      <% if user_signed_in? %>
+      <li>
+        <!--★users一覧を作成したらリンク先を変更する-->
+        <%= link_to "Users", root_path %>
+      </li>
+
+      <li>
+        <!--★book一覧を作成したらリンク先を変更する-->
+        <%= link_to "Books", root_path %>
+      </li>
+
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li>
+
+      <% else %>
+      <li>
+        <!--★ aboutを作成したらリンク先を変更する-->
+        <%= link_to "About", root_path %>
+      </li>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Log in", user_session_path %>
+      </li>
+      <% end %>
+    </header>
+
     <%= yield %>
   </body>
 </html>
