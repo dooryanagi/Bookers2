@@ -1,2 +1,13 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Book detail</h1>
+
+<div>
+  <%= @book.user.name %>
+  <%= @book.title %>
+  <%= @book.opinion %>
+
+  <!--本人のみ削除できるように削除ボタンを設定-->
+  <% if @book.user == current_user %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
+
+</div>

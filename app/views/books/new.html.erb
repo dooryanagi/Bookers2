@@ -1,6 +1,9 @@
 <h2>New book</h1>
 
-<%= form_with model: @book, url: new_book_path do |f| %>
+<!--, url: books_path, method: :post-->
+<!--正しいurlmethodは何だろう？-->
+<!--保存先に送るから、createのurlとPOSTが正解！-->
+<%= form_with model: @book, url: books_path, method: :post do |f| %>
 
 <!--サインイン時に名前も登録するためのフォームを追加-->
   <div class="field">

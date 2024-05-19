@@ -1,2 +1,15 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h2>Books</h2>
+<p>Title</p>
+<p>Opinion</p>
+
+<% @books.each do |book| %>
+  <div>
+    <!--nameは後で画像に置き換える-->
+    <p>画像<%= book.user.name %></p>
+
+    <p>Title</p>
+    <p><%= link_to book.title, book_path(book.id) %></p>
+
+    <P><%= book.opinion %></p>
+  </div>
+<% end %>
