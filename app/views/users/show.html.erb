@@ -5,7 +5,7 @@
 <div>
   <p><%= image_tag @user.get_profile_image(100,100) %></p>
   <p>name<%= @user.name %></p>
-  <p>introduction</p>
+  <p>introduction<%= @user.introduction %></p>
 </div>
 
 
@@ -17,7 +17,7 @@
   <p>Opinion</p>
 
   <% @books.each do |book| %>
-    <!--%= image_tag book.user.get_profile_image(100,100) %>-->
+    <%= image_tag book.user.get_profile_image(100,100) %>
     <p><%= link_to book.title, book_path(book.id) %></p>
 
 

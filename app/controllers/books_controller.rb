@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
+      flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
       render new_book_path
@@ -31,7 +32,6 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    # 削除後にユーザーのマイページに行くには？
     redirect_to books_path
   end
 
@@ -42,10 +42,15 @@ class BooksController < ApplicationController
 
   # 更新機能
   def update
-    book = Book.find(params[:id])
+    @book = Book.find(params[:id])
     # updateに引数を指定する必要がある
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    # フラッシュメッセージの追加
+    if @book.update(book_params)
+      flash[:notice] = "You have edited book successfully."
+      redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
   end
 
   # 保存のセキュリティのためのストロングパラメータ

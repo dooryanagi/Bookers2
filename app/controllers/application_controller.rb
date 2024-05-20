@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  
-  # 【?】ifの：の意味
+  # ログイン認証が完了していないユーザーはtopとaboutしか行けない
+  before_action :authenticate_user!, except: [:top, :about]
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   # サインインの遷移先を一覧にする
@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
     books_path
   end
   
-  # サインアウト後の遷移先を一覧にする
-  # デフォがルートパスだから不要？
   
   # privateとは異なり他のコントローラからも参照できる
   protected

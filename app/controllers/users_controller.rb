@@ -22,16 +22,18 @@ class UsersController < ApplicationController
   # 更新
   def update
     # どっちの変数だろう？
-    user = User.fing(params[:id])
+    @user = User.find(params[:id])
     # 本人以外が更新できないようにする
-    unless user.id == current_user.id
+    unless @user.id == current_user.id
       redirect_to users_path
     end
 
-    @user = User.find(params[:id])
-    @user = update(user_params)
-    # update userしても遷移しない？
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      flash[:notice] = "You have edited user info successfully."
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
 private
@@ -39,8 +41,8 @@ private
 
   # updateを定義するときに追加
   def user_params
-    # ★introductionとimageを追加したらpermitに追加
-    params.require(:user).permit(:name)
+    # ★imageを追加したらpermitに追加
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 

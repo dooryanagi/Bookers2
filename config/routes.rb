@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # ルートパスを設定
   root to: "homes#top"
+  get '/about' => 'homes#about'
 
   devise_for :users
 
