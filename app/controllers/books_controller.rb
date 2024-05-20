@@ -31,7 +31,8 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to book_path
+    # 削除後にユーザーのマイページに行くには？
+    redirect_to books_path
   end
 
   # 編集機能

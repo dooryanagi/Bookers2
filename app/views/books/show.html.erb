@@ -7,6 +7,9 @@
 
   <!--本人のみ削除できるように削除ボタンを設定-->
   <% if @book.user == current_user %>
+
+    <%= link_to "Edit", edit_book_path(@book), method: :get %>
+
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
 

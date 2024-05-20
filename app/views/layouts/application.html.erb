@@ -13,18 +13,19 @@
   <body>
     <header>
       <li>
+        <!--ログインしているユーザーのマイページをリンク先にしたい-->
+        <!--詳細ページのように変数を定義する？？-->
         <%= link_to "Home", root_path %>
       </li>
 
       <% if user_signed_in? %>
       <li>
-        <!--★users一覧を作成したらリンク先を変更する-->
-        <%= link_to "Users", root_path %>
+        <%= link_to "Users", users_path %>
       </li>
 
       <li>
         <!--★book一覧を作成したらリンク先を変更する-->
-        <%= link_to "Books", root_path %>
+        <%= link_to "Books", books_path %>
       </li>
 
       <li>

@@ -1,0 +1,22 @@
+<h2>Users</h2>
+
+<div>
+  <!--テーブルに変更-->
+  <p>image</p>
+
+  <p>name</p>
+
+  <% @users.each do |user| %>
+    <!--★サイズ？の書き換えあるはず-->
+    <!--<p>%= image_tag user.get_profile_image %></p>-->
+
+    <p><%= user.name %></p>
+    <p><%= link_to "Show", user_path(user.id) %></p>
+
+    <!--各ユーザーの個人ページへのリンク　 %= link_to "Show",-->
+  <% end %>
+
+
+
+</div>
+
