@@ -2,11 +2,19 @@
 
 <h1>User info</h1>
 
-<div>
-  <p><%= image_tag @user.get_profile_image(100,100) %></p>
-  <p>name<%= @user.name %></p>
-  <p>introduction<%= @user.introduction %></p>
-</div>
+<%= image_tag @user.get_profile_image(100,100) %>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+
+  <tr>
+    <td>introduction</td>
+    <td><%= @user.introduction %></td>
+  </tr>
+</table>
 
 
 <%= link_to "編集（アイコンに変更）", edit_user_path %>

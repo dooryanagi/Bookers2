@@ -1,16 +1,31 @@
 <h1>Book detail</h1>
 
-<div>
-  <%= @book.user.name %>
-  <%= @book.title %>
-  <%= @book.opinion %>
+<table>
+  <tr>
+    <th>
+      <td>
+        <%= link_to user_path(current_user.id) do %>
+          <div><%= image_tag @book.user.get_profile_image(100,100) %></div>
+          <div><%= @book.user.name %></div>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to @book.title, book_path(@book.id) %>
+      </td>
+      <td>
+        <%= @book.opinion %>
+      </td>
 
-  <!--本人のみ削除できるように削除ボタンを設定-->
-  <% if @book.user == current_user %>
 
-    <%= link_to "Edit", edit_book_path(@book), method: :get %>
-
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
-
-</div>
+      <!--本人のみ削除できるように削除ボタンを設定-->
+      <% if @book.user == current_user %>
+      <td>
+        <%= link_to "Edit", edit_book_path(@book), method: :get %>
+      </td>
+      <td>
+        <%= link_to "Destroy", book_path(@book), method: :delete %>
+      </td>
+      <% end %>
+    </th>
+  </tr>
+</table>

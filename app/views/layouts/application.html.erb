@@ -12,7 +12,9 @@
 
   <body>
     <header>
-
+      <li>
+        <%= link_to "Bokkers", root_path %>
+      </li>
 
       <% if user_signed_in? %>
       <li>
@@ -61,6 +63,10 @@
       </div>
       <%= yield %>
     </main>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
 
   </body>
 </html>
