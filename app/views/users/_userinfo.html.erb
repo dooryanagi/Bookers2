@@ -16,10 +16,8 @@
   </tr>
 </table>
 
-
-<!--本人のみ編集できるように削除ボタンを設定-->
-<% if user == current_user %>
+<!--1リンク先は本を書いた人の編集ページ-->
+<!--2editに本人ではない場合はeditアクションで遷移させる-->
   <%= link_to edit_user_path(user) do %>
     <i class="fa-solid fa-user-gear"></i>
   <% end %>
-<% end %>
