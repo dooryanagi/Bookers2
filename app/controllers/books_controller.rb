@@ -26,6 +26,11 @@ class BooksController < ApplicationController
   # 一覧ページ
   def index
     @books = Book.all
+    # 部分テンプレート使用のため追記
+    # idはcurrent_userを使う
+    @user = User.find(current_user.id)
+    # 部分テンプレート使用のため追記(newから持ってくる)
+    @book = Book.new
   end
 
   # 削除機能
@@ -38,6 +43,8 @@ class BooksController < ApplicationController
   # 編集機能
   def edit
     @book = Book.find(params[:id])
+    # 部分テンプレート使用のため追記
+    @user = User.find(current_user.id)
   end
 
   # 更新機能

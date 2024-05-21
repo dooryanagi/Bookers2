@@ -1,36 +1,38 @@
-<!--マイページ-->
+<!--共通部分は削除-->
 
-<h1>User info</h1>
+<!--部分テンプレートの呼び出し（userinfo）、変数の変更user→@user-->
+<%= render 'userinfo', user: @user %>
 
-<%= image_tag @user.get_profile_image(100,100) %>
+<!--部分テンプレート（newbook）の呼び出し-->
+<!--変数は要定義-->
+<%= render 'books/newbook', book: @book %>
 
-<table>
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-
-  <tr>
-    <td>introduction</td>
-    <td><%= @user.introduction %></td>
-  </tr>
-</table>
-
-
-<%= link_to "編集（アイコンに変更）", edit_user_path %>
-
-<div>
   <h2>Books</h2>
-  <p>Title</p>
-  <p>Opinion</p>
 
+
+  <table>
+
+  <tr>
+    <th>
+      Title
+    </th>
+    <th>
+      Opinion
+    </th>
+  </tr>
+
+  <tr>
   <% @books.each do |book| %>
+    <td>
     <%= image_tag book.user.get_profile_image(100,100) %>
-    <p><%= link_to book.title, book_path(book.id) %></p>
-
-
-
-    <p><%= book.opinion %></p>
+    </td>
+    <td>
+      <%= link_to book.title, book_path(book.id) %>
+    </td>
+    <td>
+      <%= book.opinion %>
+    </td>
+  </tr>
   <% end %>
-</div>
+</table>
 

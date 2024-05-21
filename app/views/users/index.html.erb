@@ -1,3 +1,10 @@
+<!--部分テンプレートの呼び出し（userinfo）、変数の変更user→@user-->
+<%= render 'userinfo', user: @user %>
+
+<!--部分テンプレート（newbook）の呼び出し-->
+<!--変数は要定義-->
+<%= render 'books/newbook', book: @book %>
+
 <h2>Users</h2>
 
 <table>
