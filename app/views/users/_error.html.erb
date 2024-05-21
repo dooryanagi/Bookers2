@@ -1,0 +1,14 @@
+<!--部分テンプレートとして使用するためインスタンス変数をローカル変数に変更-->
+<!--@user→user-->
+
+<% if user.errors.any? %>
+  <%= user.errors.count %> errors prohibited this obj from being saved:
+
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

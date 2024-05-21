@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   # メソッドとして定義することでbefore_actionを用いれるようになる
   def configure_permitted_parameters
     # devise_parameter_sanitizer.permitメソッド、サインイン時にkeyのデータ操作を許可している
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
 
 end

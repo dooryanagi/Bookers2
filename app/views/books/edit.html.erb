@@ -18,8 +18,13 @@
   <%= f.text_field :title %>
 
   <p>Opinion</p>
-  <%= f.text_area :opinion %>
+  <%= f.text_area :body %>
 
   <%= f.submit "Update Book" %>
 
 <% end %>
+
+<!--showとBackのリンクの作成-->
+ <%= link_to "Show", book_path(@book.id) %>
+ |
+ <%= link_to "Back", books_path %>

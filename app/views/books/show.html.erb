@@ -1,31 +1,48 @@
-<h1>Book detail</h1>
+<div class="contaiter">
+  <div class="row">
+    <div class="col-md-3">
+      <!--部分テンプレート（user info）の呼び出し-->
+      <!--変数は要定義-->
+      <!--投稿された本の情報と紐づけたい-->
+      <%= render 'users/userinfo', user: @user %>
 
-<table>
-  <tr>
-    <th>
-      <td>
-        <%= link_to user_path(current_user.id) do %>
-          <div><%= image_tag @book.user.get_profile_image(100,100) %></div>
-          <div><%= @book.user.name %></div>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to @book.title, book_path(@book.id) %>
-      </td>
-      <td>
-        <%= @book.opinion %>
-      </td>
+      <!--部分テンプレート（newbook）の呼び出し-->
+      <!--変数は要定義-->
+      <!--インスタンス変数を定義しなくてもよい-->
+      <%= render 'newbook', book: Book.new %>
+    </div>
 
+    <div class="offset-md-1"></div>
 
-      <!--本人のみ削除できるように削除ボタンを設定-->
-      <% if @book.user == current_user %>
-      <td>
-        <%= link_to "Edit", edit_book_path(@book), method: :get %>
-      </td>
-      <td>
-        <%= link_to "Destroy", book_path(@book), method: :delete %>
-      </td>
-      <% end %>
-    </th>
-  </tr>
-</table>
+    <div class="col-md-8">
+      <h2>Book detail</h2>
+      <table>
+        <tr>
+          <th>
+            <td>
+              <%= link_to user_path(@book.user.id) do %>
+              <div><%= image_tag @book.user.get_profile_image(100,100) %></div>
+              <div><%= @book.user.name %></div>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to @book.title, book_path(@book.id) %>
+            </td>
+            <td>
+              <%= @book.body %>
+            </td>
+            <!--本人のみ削除できるように削除ボタンを設定-->
+            <% if @book.user == current_user %>
+            <td>
+              <%= link_to "Edit", edit_book_path(@book), method: :get %>
+            </td>
+            <td>
+              <%= link_to "Destroy", book_path(@book), method: :delete %>
+            </td>
+            <% end %>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

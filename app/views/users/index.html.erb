@@ -1,38 +1,41 @@
-<!--部分テンプレートの呼び出し（userinfo）、変数の変更user→@user-->
-<%= render 'userinfo', user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <!--部分テンプレートの呼び出し（userinfo）、変数の変更user→@user-->
+      <%= render 'userinfo', user: @user %>
 
-<!--部分テンプレート（newbook）の呼び出し-->
-<!--変数は要定義-->
-<%= render 'books/newbook', book: @book %>
+      <!--部分テンプレート（newbook）の呼び出し-->
+      <!--変数は要定義-->
+      <%= render 'books/newbook', book: @book %>
+    </div>
+    <div class="offset-md-1"></div>
+    <div class="col-md-8">
+      <h2>Users</h2>
 
-<h2>Users</h2>
+      <table>
+        <tr>
+          <th>
+            image
+          </th>
+          <th>
+            name
+          </th>
+        </tr>
 
-<table>
-  <tr>
-    <th>
-      image
-    </th>
-    <th>
-      name
-    </th>
-  </tr>
-
-
-  <% @users.each do |user| %>
-  <tr>
-    <td>
-    <%= image_tag user.get_profile_image(100,100) %>
-    </td>
-    <td>
-      <%= user.name %>
-    </td>
-    <td>
-      <%= link_to "Show", user_path(user.id) %>
-    </td>
-  </tr>
-  <% end %>
-
-
-
-</table>
-
+        <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= image_tag user.get_profile_image(100,100) %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <%= link_to "Show", user_path(user.id) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

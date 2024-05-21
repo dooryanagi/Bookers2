@@ -23,13 +23,11 @@ class UsersController < ApplicationController
     unless user.id == current_user.id
       redirect_to users_path
     end
-    # 飯テロでは@userも定義していた
     @user = User.find(params[:id])
   end
 
   # 更新
   def update
-    # どっちの変数だろう？
     @user = User.find(params[:id])
     # 本人以外が更新できないようにする
     unless @user.id == current_user.id
