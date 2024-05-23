@@ -15,84 +15,122 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navber-dark bg-dark">
-        <div class="container">
-          <ul class="navbar-nav ml-auto">
+      <div class="row justify-content-center d-flex align-item-center px-5 bg-dark">
+        <div class="col-2">
+          <ul>
             <li>
               <%= link_to "Bookers", root_path %>
             </li>
 
-            <% if user_signed_in? %>
+        </div>
+
+        <% if user_signed_in? %>
+
+        <div class="col-2 offset-2">
+
             <li>
               <!--ログインしているユーザーのマイページをリンク先にしたい-->
               <!--詳細ページのように変数を定義する？？-->
               <!--【？】アイコンをつけると大文字になってしまう-->
               <%= link_to user_path(current_user.id) do %>
-                <p>
-                  <i class="fa-solid fa-house"></i>
+              <p>
+                <i class="fa-solid fa-house"></i>
                   Home
-                </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to users_path do %>
-                <p><i class="fa-solid fa-users"></i>
-                  Users
-                </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to books_path do %>
-                <p><i class="fa-solid fa-book-open"></i>
-                  Books
-                </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <p><i class="fa-solid fa-right-from-bracket"></i>
-                  Log out
-                </p>
+              </p>
               <% end %>
             </li>
 
-            <% else %>
-            <li>
-              <%= link_to root_path do %>
-                <p>
-                  <i class="fa-solid fa-house"></i>
-                  Home
-                </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to home_about_path do %>
+        </div>
+              <div class="col-2">
+
+                  <li>
+                    <%= link_to users_path do %>
+                  <p><i class="fa-solid fa-users"></i>
+                    Users
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
+              <div class="col-2">
+
+                  <li>
+                  <%= link_to books_path do %>
+                  <p><i class="fa-solid fa-book-open"></i>
+                    Books
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
+              <div class="col-2">
+
+                  <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <p><i class="fa-solid fa-right-from-bracket"></i>
+                    Log out
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
+
+              <% else %>
+              <div class="col-2 offset-2">
+
+                  <li>
+                  <%= link_to root_path do %>
+                  <p>
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
+              <div class="col-2">
+
+                  <li>
+                  <%= link_to home_about_path do %>
                 <p>
                   <i class="fa-solid fa-link"></i>
                   About
                 </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_registration_path do %>
-                <p>
-                  <i class="fa-solid fa-user-plus"></i>
-                  Sign up
-                </p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to user_session_path do %>
-                <p>
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  Log in
-                </p>
-              <% end %>
-            </li>
+                <% end %>
+                </li>
+
+              </div>
+              <div class="col-2">
+
+                  <li>
+                  <%= link_to new_user_registration_path do %>
+                  <p>
+                    <i class="fa-solid fa-user-plus"></i>
+                    Sign up
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
+              <div class="col-2">
+
+                  <li>
+                  <%= link_to user_session_path do %>
+                  <p>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Log in
+                  </p>
+                  <% end %>
+                  </li>
+
+              </div>
             <% end %>
+          </ul>
         </div>
-      </nav>
+      </div>
     </header>
+
+
 
     <main>
       <div>
