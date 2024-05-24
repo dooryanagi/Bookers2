@@ -14,10 +14,28 @@
  *= require_self
  */
 
+/*黒丸を消すために追加*/
 li {
   list-style: none;
 }
 
 ul {
   list-style: none;
+}
+
+.fa-solid fa-house {
+  display: none;
+}
+
+li::marker {
+  display: none;
+}
+
+i {
+  margin-left: 0;
+}
+
+.fa-solid.fa-house::before {
+  content: '';
+  display: none;
 }

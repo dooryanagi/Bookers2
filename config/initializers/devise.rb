@@ -49,6 +49,7 @@ Devise.setup do |config|
 
   # ログイン方法をemaiからnameに変更する
   # Railsのデフォはemail
+  # ここでnameを指定しているため、applicationコントローラにnameをpermitすることは書かなくてよい
   config.authentication_keys = [:name]
 
   # Configure parameters from the request object used for authentication. Each entry
