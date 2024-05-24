@@ -26,6 +26,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     # 部分テンプレート使用のため追記
     # idはcurrent_userを使う→投稿に紐づくユーザーを表示させたい
+    # アソシエーションにより定義可能
     @user = @book.user
   end
 
